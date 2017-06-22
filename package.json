@@ -1,0 +1,55 @@
+{
+  "name": "@cotto/dispatcher",
+  "description": "tyesafe minimal dispatcher",
+  "version": "0.0.1",
+  "author": "cotto",
+  "ava": {
+    "files": [
+      "./test/compiled/**/*.test.js"
+    ],
+    "verbose": true,
+    "babel": "inherit"
+  },
+  "bugs": {
+    "url": "https://github.com/cotttpan/dispatcher/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cotto/tslint-config": "^0.0.4",
+    "@types/node": "^8.0.1",
+    "@types/sinon": "^2.3.1",
+    "ava": "^0.19.1",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.3.5",
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENCE"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cotttpan/dispatcher.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:dist": "tsc",
+    "build:test": "tsc -p test",
+    "clean": "run-p clean:**",
+    "clean:dist": "rimraf ./dist",
+    "clean:test": "rimraf ./test/compiled",
+    "lint": "tslint src/**/*.ts",
+    "myprepublish": "run-s clean:dist build:dist",
+    "mypublish": "npm run myprepublish && npm publish --access=public",
+    "start": "tsc -w",
+    "test": "NODE_ENV=test npm-run-all clean:test build:test -p 'build:test -- -w' 'test:ava -- -w'",
+    "test:ava": "ava -w"
+  },
+  "types": "dist/index.d.ts"
+}
