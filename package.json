@@ -1,7 +1,7 @@
 {
   "name": "@cotto/dispatcher",
   "description": "tyesafe minimal dispatcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "cotto",
   "ava": {
     "files": [
