@@ -12,7 +12,7 @@ class Dispatcher<T = any> {
         return this._listeners.length;
     }
 
-    subscribe = <K extends keyof T>(listener: Listener<T, K>) => {
+    subscribe<K extends keyof T>(listener: Listener<T, K>) {
         if (this._listeners.indexOf(listener) < 0) {
             this._listeners.push(listener);
         }
@@ -27,7 +27,7 @@ class Dispatcher<T = any> {
         };
     }
 
-    dispatch = <K extends keyof T>(type: K, payload: T[K]) => {
+    dispatch<K extends keyof T>(type: K, payload: T[K]) {
         let i = -1;
         const listeners = this._listeners;
         const len = listeners.length;
